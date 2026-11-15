@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { contactEmail } from '../siteConfiguration';
+---
+
+<BaseLayout title="Support – MailSimple" description="Hilfe zu MailSimple: Konten einrichten, App-Passwörter, Kontakt.">
+  <article class="prose prose-lg max-w-none">
+    <h1>Support</h1>
+    <p>
+      Du hast eine Frage, ein Problem oder eine Idee? Schreib eine E-Mail an
+      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>. Beschreibe bitte kurz, was du gemacht hast, was passiert ist,
+      welchen Mail-Anbieter du nutzt und welche iOS-Version auf deinem Gerät läuft. Schick bitte niemals dein Passwort mit.
+    </p>
+
+    <h2>Konto einrichten</h2>
+    <p>
+      Gib deine E-Mail-Adresse ein. Bei bekannten Anbietern trägt MailSimple die Servereinstellungen selbst ein. Bei
+      anderen Anbietern sucht die App die Einstellungen automatisch. Klappt das nicht, gibst du Server und Ports von Hand
+      ein. Die Daten dafür findest du auf der Hilfeseite deines Anbieters.
+    </p>
+    <ul>
+      <li>IMAP: Port 993 mit SSL/TLS</li>
+      <li>SMTP: Port 465 mit SSL/TLS oder Port 587 mit STARTTLS</li>
+    </ul>
+    <p>Unverschlüsselte Verbindungen unterstützt MailSimple bewusst nicht.</p>
+
+    <h2>App-Passwort für Gmail und iCloud</h2>
+    <p>
+      Gmail und iCloud erlauben die Anmeldung in MailSimple nur mit einem App-spezifischen Passwort. Dein normales
+      Passwort funktioniert dort nicht.
+    </p>
+    <ul>
+      <li>
+        <strong>iCloud:</strong> Melde dich bei <a href="https://account.apple.com">account.apple.com</a> an und erstelle
+        unter „Anmelden und Sicherheit“ ein App-spezifisches Passwort.
+      </li>
+      <li>
+        <strong>Gmail:</strong> Aktiviere die Bestätigung in zwei Schritten in deinem Google-Konto und erstelle dann unter
+        <a href="https://myaccount.google.com/apppasswords">myaccount.google.com/apppasswords</a> ein App-Passwort.
+      </li>
+    </ul>
+    <p>
+      Bei GMX und web.de musst du den Zugriff per IMAP in den Einstellungen des Postfachs eventuell erst einschalten.
+    </p>
+
+    <h2>Nachrichten zwischen Konten verschieben</h2>
+    <p>
+      MailSimple kopiert die Nachricht zuerst ins Zielkonto und prüft die Kopie. Erst danach wird das Original entfernt.
+      Wird der Vorgang unterbrochen, zum Beispiel durch fehlendes Netz, setzt die App ihn beim nächsten Start fort. Im
+      schlimmsten Fall liegt eine Nachricht dann in beiden Konten, aber nie in keinem.
+    </p>
+  </article>
+</BaseLayout>

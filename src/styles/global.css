@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-surface: light-dark(#ffffff, #0b0d12);
+  --color-surface-raised: light-dark(#f4f6fa, #161a22);
+  --color-text: light-dark(#14171f, #e8ebf2);
+  --color-text-muted: light-dark(#4a5263, #a3abbd);
+  --color-accent: light-dark(#1d5fd1, #7fb0ff);
+  --color-border: light-dark(#dde2ec, #2a303c);
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+.prose {
+  --tw-prose-body: var(--color-text);
+  --tw-prose-headings: var(--color-text);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-text);
+  --tw-prose-bullets: var(--color-text-muted);
+  --tw-prose-hr: var(--color-border);
+}

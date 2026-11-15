@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { contactEmail, privacyPolicyLastUpdated, responsiblePerson } from '../siteConfiguration';
+---
+
+<BaseLayout
+  title="Datenschutzerklärung – MailSimple"
+  description="Wie MailSimple mit deinen Daten umgeht: keine Datenerhebung durch den Entwickler, kein Tracking."
+>
+  <article class="prose prose-lg max-w-none">
+    <h1>Datenschutzerklärung</h1>
+    <p>Stand: {privacyPolicyLastUpdated}</p>
+
+    <h2>Kurz gesagt</h2>
+    <p>
+      MailSimple erhebt keine Daten über dich. Es gibt keinen Server des Entwicklers, kein Benutzerkonto, kein Tracking,
+      keine Werbung und keine Analyse-Werkzeuge. Die App verbindet sich nur mit den Mail-Servern, die du selbst
+      einrichtest.
+    </p>
+
+    <h2>Verantwortlicher</h2>
+    <p>
+      {responsiblePerson}<br />
+      E-Mail: <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+    </p>
+
+    <h2>Daten in der App</h2>
+    <p>
+      Deine Kontoeinstellungen, Ordnereinstellungen und zwischengespeicherte Nachrichten liegen nur auf deinem Gerät.
+      Passwörter speichert MailSimple ausschließlich im Schlüsselbund von iOS. Sie werden nicht mit iCloud
+      synchronisiert und verlassen dein Gerät nur, um dich bei deinem Mail-Anbieter anzumelden.
+    </p>
+    <p>
+      Wenn du die App löschst, entfernt iOS die gespeicherten Daten der App. Einträge im Schlüsselbund können je nach
+      iOS-Version erhalten bleiben, bis du die Konten vorher in der App entfernst.
+    </p>
+
+    <h2>Verbindungen zu Dritten</h2>
+    <p>MailSimple stellt nur in diesen Fällen Verbindungen zu anderen Servern her:</p>
+    <ul>
+      <li>
+        <strong>Dein Mail-Anbieter:</strong> Um Nachrichten abzurufen, zu senden und zu verschieben, verbindet sich die
+        App verschlüsselt mit den IMAP- und SMTP-Servern deines Anbieters. Dabei gilt die Datenschutzerklärung deines
+        Anbieters.
+      </li>
+      <li>
+        <strong>Automatische Einrichtung:</strong> Kennt MailSimple deinen Anbieter nicht, sucht die App die
+        Servereinstellungen selbst. Dafür fragt sie per HTTPS bei <code>autoconfig.&lt;deine Domain&gt;</code> mit deiner
+        E-Mail-Adresse an, beim Einstellungsverzeichnis von Mozilla Thunderbird (<code>autoconfig.thunderbird.net</code>)
+        nur mit dem Domainnamen und per DNS nach Service-Einträgen der Domain. Dabei sehen diese Server deine
+        IP-Adresse.
+      </li>
+      <li>
+        <strong>Externe Bilder in Nachrichten:</strong> MailSimple lädt Bilder aus dem Internet erst, wenn du es für eine
+        Nachricht erlaubst. Dann sieht der Server, der das Bild bereitstellt, deine IP-Adresse und dass die Nachricht
+        geöffnet wurde.
+      </li>
+    </ul>
+
+    <h2>Diese Website</h2>
+    <p>
+      Diese Website wird über GitHub Pages bereitgestellt (GitHub, Inc., USA). GitHub verarbeitet beim Aufruf technisch
+      notwendige Daten wie deine IP-Adresse in Server-Protokollen. Details stehen in der
+      <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement"
+        >Datenschutzerklärung von GitHub</a
+      >. Die Website selbst setzt keine Cookies und nutzt kein Tracking.
+    </p>
+
+    <h2>Deine Rechte</h2>
+    <p>
+      Du hast nach der DSGVO das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
+      Datenübertragbarkeit und Widerspruch. Da der Entwickler keine Daten über dich speichert, gibt es in der Regel nichts
+      herauszugeben oder zu löschen. Bei Fragen schreib an <a href={`mailto:${contactEmail}`}>{contactEmail}</a>. Du kannst
+      dich außerdem bei einer Datenschutz-Aufsichtsbehörde beschweren.
+    </p>
+
+    <h2>Änderungen</h2>
+    <p>
+      Wenn sich die App so ändert, dass sie anders mit Daten umgeht, wird diese Datenschutzerklärung angepasst. Das Datum
+      oben zeigt den aktuellen Stand.
+    </p>
+  </article>
+</BaseLayout>

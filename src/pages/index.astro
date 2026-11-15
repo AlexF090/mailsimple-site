@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="MailSimple – alle Postfächer in einer App"
+  description="MailSimple bündelt mehrere E-Mail-Konten auf dem iPhone und verschiebt Nachrichten sicher zwischen Konten."
+>
+  <div class="flex flex-col items-start gap-6">
+    <img src={`${base}/app-icon.png`} alt="App-Symbol von MailSimple" width="96" height="96" class="rounded-2xl" />
+    <h1 class="text-4xl font-bold tracking-tight">MailSimple</h1>
+    <p class="text-xl text-text-muted">
+      Alle Postfächer in einer App. Nachrichten sicher zwischen Konten verschieben. Ohne Server des Entwicklers, ohne
+      Tracking, ohne Kosten.
+    </p>
+  </div>
+  <div class="prose prose-lg mt-12 max-w-none">
+    <h2>Was MailSimple kann</h2>
+    <ul>
+      <li>Mehrere Konten per IMAP und SMTP, zum Beispiel bei Gmail, iCloud, GMX oder web.de.</li>
+      <li>„Alle Eingänge“ zeigt die Posteingänge aller Konten gemeinsam.</li>
+      <li>Nachrichten zwischen Konten verschieben, ohne dass etwas verloren geht.</li>
+      <li>Verschlüsselte Verbindungen sind Pflicht. Passwörter liegen nur im Schlüsselbund deines Geräts.</li>
+    </ul>
+    <p>
+      Fragen oder Probleme? Auf der <a href={`${base}/support/`}>Support-Seite</a> findest du Hilfe. Wie MailSimple mit
+      deinen Daten umgeht, steht in der <a href={`${base}/datenschutz/`}>Datenschutzerklärung</a>.
+    </p>
+  </div>
+</BaseLayout>
