@@ -1,32 +1,75 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import LimitationItem from '../components/LimitationItem.astro';
+import { advantages, limitations, smallerAdvantages } from '../comparisonData';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const inlineLinkClass = 'text-accent underline underline-offset-4 hover:no-underline';
 ---
 
 <BaseLayout
-  title="MailSimple – alle Postfächer in einer App"
-  description="MailSimple bündelt mehrere E-Mail-Konten auf dem iPhone und verschiebt Nachrichten sicher zwischen Konten."
+  title="MailSimple – alle Postfächer in einer App, ohne Umweg"
+  description="MailSimple bündelt deine E-Mail-Konten auf dem iPhone. Ohne Umweg über andere Firmen, ohne Werbung. Mit Vergleich zu Apple Mail, Gmail, Outlook, Spark, GMX, WEB.DE und Telekom Mail."
 >
-  <div class="flex flex-col items-start gap-6">
-    <img src={`${base}/app-icon.png`} alt="App-Symbol von MailSimple" width="96" height="96" class="rounded-2xl" />
-    <h1 class="text-4xl font-bold tracking-tight">MailSimple</h1>
-    <p class="text-xl text-text-muted">
-      Alle Postfächer in einer App. Nachrichten sicher zwischen Konten verschieben. Ohne Server des Entwicklers, ohne
-      Tracking, ohne Kosten.
+  <section aria-labelledby="hero-heading" class="flex flex-col items-start gap-6">
+    <img src={`${base}/app-icon.png`} alt="App-Symbol von MailSimple" width="96" height="96" class="rounded-[22px]" />
+    <h1 id="hero-heading" class="font-display text-4xl leading-tight font-bold tracking-tight text-balance sm:text-5xl">
+      Deine Post bleibt zwischen dir und deinem Anbieter.
+    </h1>
+    <p class="max-w-prose text-xl leading-relaxed text-text-muted">
+      MailSimple ist eine Mail-App für das iPhone. Sie holt deine E-Mails direkt von Gmail, GMX, WEB.DE, iCloud und
+      anderen. Ohne Umweg über andere Firmen. Zurzeit kostenlos und ohne Werbung.
     </p>
-  </div>
-  <div class="prose prose-lg mt-12 max-w-none">
-    <h2>Was MailSimple kann</h2>
-    <ul>
-      <li>Mehrere Konten per IMAP und SMTP, zum Beispiel bei Gmail, iCloud, GMX oder web.de.</li>
-      <li>„Alle Eingänge“ zeigt die Posteingänge aller Konten gemeinsam.</li>
-      <li>Nachrichten zwischen Konten verschieben, ohne dass etwas verloren geht.</li>
-      <li>Verschlüsselte Verbindungen sind Pflicht. Passwörter liegen nur im Schlüsselbund deines Geräts.</li>
+  </section>
+
+  <section aria-labelledby="advantages-heading" class="mt-20">
+    <h2 id="advantages-heading" class="font-display text-3xl font-bold tracking-tight">Was MailSimple anders macht</h2>
+    <ul class="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+      {
+        advantages.map((advantage) => (
+          <li class="border-l-4 border-accent pl-5">
+            <h3 class="font-display text-xl font-semibold">{advantage.title}</h3>
+            <p class="mt-2 text-lg leading-relaxed">{advantage.text}</p>
+          </li>
+        ))
+      }
     </ul>
-    <p>
-      Fragen oder Probleme? Auf der <a href={`${base}/support/`}>Support-Seite</a> findest du Hilfe. Wie MailSimple mit
-      deinen Daten umgeht, steht in der <a href={`${base}/datenschutz/`}>Datenschutzerklärung</a>.
+    <h3 class="mt-12 font-display text-xl font-semibold">Außerdem</h3>
+    <ul class="mt-3 list-disc pl-6 text-lg leading-relaxed marker:text-text-muted">
+      {smallerAdvantages.map((item) => <li>{item}</li>)}
+    </ul>
+  </section>
+
+  <section aria-labelledby="comparison-heading" class="mt-20 lg:-mx-28 xl:-mx-40">
+    <h2 id="comparison-heading" class="font-display text-3xl font-bold tracking-tight">MailSimple und andere Mail-Apps</h2>
+    <p class="mt-4 max-w-prose text-lg leading-relaxed text-text-muted">
+      Auf einen Blick. Unter der Tabelle findest du zu jeder App Erklärungen und Links zum Nachlesen.
     </p>
-  </div>
+    <div class="mt-8">
+      <ComparisonTable />
+    </div>
+  </section>
+
+  <section aria-labelledby="limitations-heading" class="mt-20 rounded-3xl bg-surface-accent px-5 py-10 sm:px-10">
+    <h2 id="limitations-heading" class="font-display text-3xl font-bold tracking-tight">
+      Was MailSimple nicht kann – und warum
+    </h2>
+    <p class="mt-4 text-lg leading-relaxed">
+      In manchen Dingen sind die großen Apps weiter. Das solltest du wissen, bevor du MailSimple ausprobierst.
+    </p>
+    <ul class="mt-8 flex flex-col gap-5 text-lg leading-relaxed">
+      {limitations.map((limitation) => <LimitationItem limitation={limitation} />)}
+    </ul>
+  </section>
+
+  <section aria-labelledby="help-heading" class="mt-20">
+    <h2 id="help-heading" class="font-display text-3xl font-bold tracking-tight">Fragen?</h2>
+    <p class="mt-4 text-lg leading-relaxed">
+      Hilfe beim Einrichten findest du auf der <a href={`${base}/support/`} class={inlineLinkClass}>Support-Seite</a>.
+      Wie MailSimple mit deinen Daten umgeht, steht in der <a href={`${base}/datenschutz/`} class={inlineLinkClass}
+        >Datenschutzerklärung</a
+      >.
+    </p>
+  </section>
 </BaseLayout>
