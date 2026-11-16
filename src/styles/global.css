@@ -8,10 +8,23 @@
   --color-text-muted: light-dark(#4a5263, #a3abbd);
   --color-accent: light-dark(#1d5fd1, #7fb0ff);
   --color-border: light-dark(#dde2ec, #2a303c);
+  --color-accent-secondary: light-dark(#4f4bc9, #aeacff);
+  --color-surface-accent: light-dark(#eaf1ff, #121c33);
+  --color-positive: light-dark(#17703a, #74d893);
+  --color-negative: light-dark(#b42318, #ff9a8f);
+  --color-partial: light-dark(#7a5200, #f0c35a);
+
+  --font-display: ui-rounded, 'SF Pro Rounded', system-ui, sans-serif;
 }
 
 :root {
   color-scheme: light dark;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .prose {
