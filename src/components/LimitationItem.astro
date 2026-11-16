@@ -15,6 +15,14 @@ const { limitation } = Astro.props;
     <span class="font-semibold">Warum? </span>{limitation.reason}
   </p>
   {
+    limitation.ourChoice && (
+      <p class="mt-3">
+        <span class="font-semibold">Und warum macht MailSimple das nicht? </span>
+        {limitation.ourChoice}
+      </p>
+    )
+  }
+  {
     limitation.sources.map((source) => (
       <a
         href={source.url}

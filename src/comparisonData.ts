@@ -44,6 +44,7 @@ export interface Limitation {
   title: string;
   shortAnswer: string;
   reason: string;
+  ourChoice?: string;
   sources: SourceLink[];
   isPlanned: boolean;
 }
@@ -148,7 +149,7 @@ export const comparisonRows: ComparisonRow[] = [
     cells: {
       mailSimple: {
         verdict: 'yes',
-        note: 'Gmail, iCloud, GMX, WEB.DE, T-Online und viele andere. Konten von Microsoft gehen noch nicht, siehe weiter unten.',
+        note: 'Gmail, iCloud, GMX, WEB.DE, T-Online und viele andere. Konten von Microsoft gehen noch nicht, siehe „Diese Postfächer funktionieren“.',
       },
       appleMail: {
         verdict: 'yes',
@@ -300,7 +301,9 @@ export const limitations: Limitation[] = [
     title: 'Kein Hinweis, wenn eine neue Mail kommt',
     shortAnswer: 'MailSimple meldet sich nicht von selbst. Du siehst neue Mails, sobald du die App öffnest.',
     reason:
-      'Stell dir einen Pförtner vor, der Tag und Nacht an deinem Briefkasten steht. Kommt Post, klingelt er bei dir. Dafür braucht er aber deinen Briefkastenschlüssel. So machen es manche Apps, Spark zum Beispiel: Ein Computer der Firma schaut für dich in dein Postfach. MailSimple hat absichtlich keinen solchen Pförtner. Und ist die App zu, entscheidet das iPhone, wann sie kurz nachschauen darf.',
+      'Stell dir einen Pförtner vor, der Tag und Nacht an deinem Briefkasten steht. Kommt Post, klingelt er bei dir. Dafür braucht er aber deinen Briefkastenschlüssel. So machen es manche Apps, Spark zum Beispiel: Ein Computer der Firma schaut für dich in dein Postfach.',
+    ourChoice:
+      'Weil dein Schlüssel bei dir bleiben soll. Wer deinen Schlüssel hat, kann deine Post lesen. Und ein Pförtner mit den Schlüsseln vieler Menschen lockt Diebe an. Darum gibt es bei MailSimple keinen Pförtner. Ist die App zu, entscheidet das iPhone, wann sie kurz nachschauen darf.',
     sources: [
       sparkPrivacy,
       {
@@ -325,23 +328,43 @@ export const limitations: Limitation[] = [
     isPlanned: true,
   },
   {
-    title: 'Keine Konten von Microsoft',
-    shortAnswer: 'Adressen von Outlook.com, Hotmail oder Live funktionieren nicht.',
-    reason:
-      'Microsoft verlangt seit September 2024 eine andere Art der Anmeldung. Die kann MailSimple noch nicht. Gmail und iCloud gehen. Dort brauchst du aber ein zweites Passwort, das du bei Google oder Apple extra erzeugst. Wie das geht, steht auf der Support-Seite.',
-    sources: [
-      {
-        label: 'Microsoft-Ankündigung',
-        url: 'https://techcommunity.microsoft.com/blog/outlook/keeping-our-outlook-personal-email-users-safe-reinforcing-our-commitment-to-secu/4164184',
-      },
-    ],
-    isPlanned: false,
-  },
-  {
     title: 'Schreiben ohne Fett, Farben und Bilder',
     shortAnswer: 'Du schreibst einfachen Text. Auch Weiterleiten gibt es bisher nicht.',
     reason: 'Wir halten die erste Version bewusst klein, damit sie zuverlässig läuft.',
     sources: [],
     isPlanned: false,
+  },
+];
+
+export interface ProviderFinePrint {
+  title: string;
+  text: string;
+  source?: SourceLink;
+}
+
+// Names match the presets in the app's providers.json.
+export const supportedProviders: string[] = [
+  'Gmail',
+  'iCloud',
+  'GMX',
+  'WEB.DE',
+  'T-Online',
+  'freenet',
+  'Posteo',
+  'mailbox.org',
+];
+
+export const providerFinePrint: ProviderFinePrint[] = [
+  {
+    title: 'Keine Konten von Microsoft',
+    text: 'Adressen von Outlook.com, Hotmail und Live funktionieren nicht. Microsoft verlangt seit September 2024 eine besondere Art der Anmeldung. Dabei meldest du dich auf einer Seite von Microsoft an, statt dein Passwort in die App einzutippen. Das kann MailSimple noch nicht.',
+    source: {
+      label: 'Microsoft-Ankündigung',
+      url: 'https://techcommunity.microsoft.com/blog/outlook/keeping-our-outlook-personal-email-users-safe-reinforcing-our-commitment-to-secu/4164184',
+    },
+  },
+  {
+    title: 'Extra-Passwort bei Gmail, iCloud und T-Online',
+    text: 'Diese Anbieter lassen Mail-Apps nicht mit deinem normalen Passwort hinein. Du erzeugst bei ihnen ein zweites Passwort nur für MailSimple. Wie das bei Gmail und iCloud geht, steht auf der Support-Seite.',
   },
 ];

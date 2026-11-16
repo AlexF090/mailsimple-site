@@ -2,7 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ComparisonTable from '../components/ComparisonTable.astro';
 import LimitationItem from '../components/LimitationItem.astro';
-import { advantages, limitations, smallerAdvantages } from '../comparisonData';
+import {
+  advantages,
+  limitations,
+  providerFinePrint,
+  smallerAdvantages,
+  supportedProviders,
+} from '../comparisonData';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const inlineLinkClass = 'text-accent underline underline-offset-4 hover:no-underline';
@@ -39,6 +45,58 @@ const inlineLinkClass = 'text-accent underline underline-offset-4 hover:no-under
     <ul class="mt-3 list-disc pl-6 text-lg leading-relaxed marker:text-text-muted">
       {smallerAdvantages.map((item) => <li>{item}</li>)}
     </ul>
+  </section>
+
+  <section aria-labelledby="providers-heading" class="mt-20">
+    <h2 id="providers-heading" class="font-display text-3xl font-bold tracking-tight">Diese Postfächer funktionieren</h2>
+    <ul class="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-4" aria-label="Anbieter, die MailSimple selbst einrichtet">
+      {
+        supportedProviders.map((provider) => (
+          <li class="flex items-center gap-2 text-lg font-medium">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 20 20"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0 text-positive"
+            >
+              <path d="M4 10.5l4 4 8-9" />
+            </svg>
+            {provider}
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-6 max-w-prose text-lg leading-relaxed">
+      Bei diesen Anbietern trägt MailSimple alles selbst ein. Du gibst nur deine E-Mail-Adresse und dein Passwort ein.
+      Auch die meisten anderen Anbieter funktionieren. Dann sucht die App die Einstellungen selbst oder du trägst sie von
+      Hand ein.
+    </p>
+    <div class="mt-8 flex flex-col gap-4 border-t border-border pt-6 text-base leading-relaxed text-text-muted">
+      {
+        providerFinePrint.map((item) => (
+          <div>
+            <h3 class="font-semibold text-text">{item.title}</h3>
+            <p class="mt-1 max-w-prose">
+              {item.text}
+              {item.source && (
+                <>
+                  {' '}
+                  <a href={item.source.url} class={inlineLinkClass}>
+                    Quelle: {item.source.label}
+                  </a>
+                </>
+              )}
+            </p>
+          </div>
+        ))
+      }
+    </div>
   </section>
 
   <section aria-labelledby="comparison-heading" class="mt-20 lg:-mx-28 xl:-mx-40">
