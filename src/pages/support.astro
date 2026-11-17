@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { contactEmail } from '../siteConfiguration';
 ---
 
-<BaseLayout title="Support – MailSimple" description="Hilfe zu MailSimple: Konten einrichten, App-Passwörter, Kontakt.">
+<BaseLayout title="Support – MailSimple" description="Hilfe zu MailSimple: Konten einrichten, App-Passwörter, Hinweise, Kontakt.">
   <article class="prose prose-lg max-w-none">
     <h1>Support</h1>
     <p>
@@ -41,6 +41,14 @@ import { contactEmail } from '../siteConfiguration';
     </ul>
     <p>
       Bei GMX und web.de musst du den Zugriff per IMAP in den Einstellungen des Postfachs eventuell erst einschalten.
+    </p>
+
+    <h2>Hinweise zu neuen Nachrichten</h2>
+    <p>
+      MailSimple hat keinen eigenen Server. Neue Nachrichten meldet dein Gerät selbst: iOS startet die App ab und zu im
+      Hintergrund, und bei geöffneter App hält sie die Verbindung zum Postfach. Wann iOS die Hintergrundaktualisierung
+      ausführt, entscheidet iOS. Hinweise können deshalb verzögert kommen. Schalte in den iOS-Einstellungen die
+      Hintergrundaktualisierung für MailSimple ein und erlaube Mitteilungen.
     </p>
 
     <h2>Nachrichten zwischen Konten verschieben</h2>

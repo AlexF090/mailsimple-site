@@ -15,7 +15,7 @@ import { contactEmail, privacyPolicyLastUpdated, responsiblePerson } from '../si
     <p>
       MailSimple erhebt keine Daten über dich. Es gibt keinen Server des Entwicklers, kein Benutzerkonto, kein Tracking,
       keine Werbung und keine Analyse-Werkzeuge. Die App verbindet sich nur mit den Mail-Servern, die du selbst
-      einrichtest.
+      einrichtest, und mit den Servern, die unten bei den Verbindungen genannt sind.
     </p>
 
     <h2>Verantwortlicher</h2>
@@ -30,6 +30,49 @@ import { contactEmail, privacyPolicyLastUpdated, responsiblePerson } from '../si
       Passwörter speichert MailSimple ausschließlich im Schlüsselbund von iOS. Sie werden nicht mit iCloud
       synchronisiert und verlassen dein Gerät nur, um dich bei deinem Mail-Anbieter anzumelden.
     </p>
+    <ul>
+      <li>
+        <strong>Lokaler Nachrichtenspeicher und Suche:</strong> Kopfdaten und Texte abgerufener Nachrichten und der
+        Suchindex liegen auf deinem Gerät. Die Suche läuft dort und fragt keinen Server.
+      </li>
+      <li>
+        <strong>Verbindungsprotokoll:</strong> In den Einstellungen unter „Verbindungen“ siehst du, welche Server die App
+        kontaktiert hat. Das Protokoll enthält nur Servername, Zweck und Datum, keine Adressen, Nachrichten oder
+        Passwörter. Es bleibt auf deinem Gerät.
+      </li>
+      <li>
+        <strong>Postausgang und Senden rückgängig:</strong> Eine Nachricht wartet kurz auf deinem Gerät, bevor sie an
+        deinen Mail-Anbieter geht. So kannst du das Senden abbrechen.
+      </li>
+      <li>
+        <strong>Regeln, Neue Absender und Zurückstellen:</strong> Regeln, die Trennung unbekannter Absender und das
+        Zurückstellen von Nachrichten arbeiten auf deinem Gerät. Wenn eine Regel oder das Zurückstellen eine Nachricht
+        verschiebt, geschieht das bei deinem Mail-Anbieter, in deinem eigenen Postfach.
+      </li>
+      <li>
+        <strong>Face ID:</strong> Du kannst die App mit Face ID, Touch ID oder dem Gerätecode sperren. Die Prüfung macht
+        iOS. MailSimple erfährt nur, ob sie geklappt hat, und bekommt keine biometrischen Daten.
+      </li>
+      <li>
+        <strong>Zusammenfassungen:</strong> Wenn du „Zusammenfassen“ tippst, erstellt das Sprachmodell von Apple die
+        Zusammenfassung auf deinem Gerät. Der Nachrichtentext wird dafür nirgends hingeschickt. Die Funktion gibt es nur
+        auf Geräten mit Apple Intelligence.
+      </li>
+      <li>
+        <strong>Empfangene Anhänge:</strong> Anhänge, die du ansiehst, legt die App vorübergehend im Zwischenspeicher
+        (Caches) deines Geräts ab. Beim nächsten Start der App werden sie gelöscht.
+      </li>
+      <li>
+        <strong>Fotos in neuen Nachrichten:</strong> Wählst du eine kleinere Größe, wird das Foto neu kodiert und enthält
+        keinen Aufnahmeort. Wählst du „Original“, bleibt das Foto unverändert und behält Metadaten wie den Aufnahmeort.
+        Die App weist darauf hin.
+      </li>
+      <li>
+        <strong>Neue Nachrichten melden:</strong> Hinweise zu neuen Nachrichten erzeugt dein Gerät selbst, durch
+        Hintergrundaktualisierung von iOS und solange die App offen ist. Es gibt keinen Server des Entwicklers, der
+        dafür deine Postfächer abfragt, und keine Push-Dienste von Apple für deine Nachrichten.
+      </li>
+    </ul>
     <p>
       Wenn du die App löschst, entfernt iOS die gespeicherten Daten der App. Einträge im Schlüsselbund können je nach
       iOS-Version erhalten bleiben, bis du die Konten vorher in der App entfernst.
@@ -54,6 +97,16 @@ import { contactEmail, privacyPolicyLastUpdated, responsiblePerson } from '../si
         <strong>Externe Bilder in Nachrichten:</strong> MailSimple lädt Bilder aus dem Internet erst, wenn du es für eine
         Nachricht erlaubst. Dann sieht der Server, der das Bild bereitstellt, deine IP-Adresse und dass die Nachricht
         geöffnet wurde.
+      </li>
+      <li>
+        <strong>Abmelden von Newslettern:</strong> Tippst du auf „Abmelden“, sendet die App die Abmeldung an die Adresse,
+        die der Absender in der Nachricht angibt. Bei einer Ein-Klick-Abmeldung ist das eine Anfrage an den Server des
+        Absenders, ohne Cookies und ohne deine Zugangsdaten. Dieser Server sieht deine IP-Adresse. Andere Abmeldewege
+        öffnen eine Webseite oder senden eine E-Mail über dein Konto.
+      </li>
+      <li>
+        <strong>Links in Nachrichten:</strong> Wenn du einen Link antippst, entfernt MailSimple bekannte
+        Tracking-Parameter aus der Adresse. Die Seite öffnet sich erst danach.
       </li>
     </ul>
 
