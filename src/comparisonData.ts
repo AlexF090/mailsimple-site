@@ -49,7 +49,7 @@ export interface Limitation {
   isPlanned: boolean;
 }
 
-export const comparisonCheckedOn = '16. November 2026';
+export const comparisonCheckedOn = '18. November 2026';
 
 export const comparedApps: ComparedApp[] = [
   { identifier: 'mailSimple', name: 'MailSimple' },
@@ -217,8 +217,8 @@ export const comparisonRows: ComparisonRow[] = [
     question: 'Hinweis bei neuer Mail',
     cells: {
       mailSimple: {
-        verdict: 'no',
-        note: 'Du siehst neue Mails, wenn du die App öffnest. Warum, steht weiter unten.',
+        verdict: 'partly',
+        note: 'Dein iPhone meldet neue Mails selbst, aber nicht sofort. Bei geöffneter App kommt der Hinweis gleich, sonst entscheidet iOS, wann die App nachschaut. Warum, steht weiter unten.',
       },
       appleMail: {
         verdict: 'yes',
@@ -294,16 +294,22 @@ export const smallerAdvantages: string[] = [
   'Gesendete Mail für ein paar Sekunden zurückholen',
   'Erinnerung, wenn du einen Anhang erwähnst, aber vergessen hast',
   'App mit Face ID sperren',
+  'Mails durchsuchen, auch ohne Internet (die Suche läuft auf dem iPhone)',
+  'Mails zurückstellen, bis du sie später wieder sehen willst',
+  'Mails von unbekannten Absendern auf Wunsch getrennt anzeigen',
+  'Regeln, die neue Mails in Ordner legen oder als gelesen markieren (sie laufen auf dem iPhone)',
+  'Lange Mails auf dem iPhone zusammenfassen lassen (nur mit Apple Intelligence)',
 ];
 
 export const limitations: Limitation[] = [
   {
-    title: 'Kein Hinweis, wenn eine neue Mail kommt',
-    shortAnswer: 'MailSimple meldet sich nicht von selbst. Du siehst neue Mails, sobald du die App öffnest.',
+    title: 'Hinweise bei neuer Mail kommen nicht sofort',
+    shortAnswer:
+      'Ist die App offen, meldet sie neue Mails gleich. Ist sie zu, kommt der Hinweis oft erst nach 15 Minuten bis einigen Stunden.',
     reason:
       'Stell dir einen Pförtner vor, der Tag und Nacht an deinem Briefkasten steht. Kommt Post, klingelt er bei dir. Dafür braucht er aber deinen Briefkastenschlüssel. So machen es manche Apps, Spark zum Beispiel: Ein Computer der Firma schaut für dich in dein Postfach.',
     ourChoice:
-      'Weil dein Schlüssel bei dir bleiben soll. Wer deinen Schlüssel hat, kann deine Post lesen. Und ein Pförtner mit den Schlüsseln vieler Menschen lockt Diebe an. Darum gibt es bei MailSimple keinen Pförtner. Ist die App zu, entscheidet das iPhone, wann sie kurz nachschauen darf.',
+      'Weil dein Schlüssel bei dir bleiben soll. Wer deinen Schlüssel hat, kann deine Post lesen. Und ein Pförtner mit den Schlüsseln vieler Menschen lockt Diebe an. Darum gibt es bei MailSimple keinen Pförtner. Ist die App zu, entscheidet das iPhone, wann sie kurz nachschauen darf. Das kann bei wenig Akku, im Stromsparmodus oder wenn du die App selten nutzt länger dauern. Du kannst den Abstand in den Einstellungen wählen oder das Abrufen ausschalten.',
     sources: [
       sparkPrivacy,
       {
@@ -311,27 +317,6 @@ export const limitations: Limitation[] = [
         url: 'https://developer.apple.com/documentation/backgroundtasks/choosing-background-strategies-for-your-app',
       },
     ],
-    isPlanned: true,
-  },
-  {
-    title: 'Noch keine Suche',
-    shortAnswer: 'Du kannst deine Mails noch nicht durchsuchen.',
-    reason: 'Zum Suchen müssen die Mails auf dem iPhone gespeichert sein. Das kann MailSimple noch nicht.',
-    sources: [],
-    isPlanned: true,
-  },
-  {
-    title: 'Ohne Internet keine Mails',
-    shortAnswer: 'Ohne Internet zeigt MailSimple keine Mails an.',
-    reason: 'MailSimple holt deine Mails jedes Mal frisch von deinem Anbieter und speichert sie noch nicht auf dem iPhone.',
-    sources: [],
-    isPlanned: true,
-  },
-  {
-    title: 'Schreiben ohne Fett, Farben und Bilder',
-    shortAnswer: 'Du schreibst einfachen Text. Auch Weiterleiten gibt es bisher nicht.',
-    reason: 'Wir halten die erste Version bewusst klein, damit sie zuverlässig läuft.',
-    sources: [],
     isPlanned: false,
   },
 ];

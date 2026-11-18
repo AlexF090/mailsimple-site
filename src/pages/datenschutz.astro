@@ -27,13 +27,16 @@ import { contactEmail, privacyPolicyLastUpdated, responsiblePerson } from '../si
     <h2>Daten in der App</h2>
     <p>
       Deine Kontoeinstellungen, Ordnereinstellungen und zwischengespeicherte Nachrichten liegen nur auf deinem Gerät.
+      Die Kontoeinstellungen, der Nachrichtenspeicher und der Postausgang sind vom Backup ausgenommen.
       Passwörter speichert MailSimple ausschließlich im Schlüsselbund von iOS. Sie werden nicht mit iCloud
       synchronisiert und verlassen dein Gerät nur, um dich bei deinem Mail-Anbieter anzumelden.
     </p>
     <ul>
       <li>
         <strong>Lokaler Nachrichtenspeicher und Suche:</strong> Kopfdaten und Texte abgerufener Nachrichten und der
-        Suchindex liegen auf deinem Gerät. Die Suche läuft dort und fragt keinen Server.
+        Suchindex liegen auf deinem Gerät und sind vom Backup ausgenommen. Die Suche läuft dort und fragt keinen Server,
+        auch ohne Internet. Nur wenn du ausdrücklich „Auch auf dem Server suchen“ antippst, schickt die App deinen Suchbegriff an
+        deinen Mail-Anbieter.
       </li>
       <li>
         <strong>Verbindungsprotokoll:</strong> In den Einstellungen unter „Verbindungen“ siehst du, welche Server die App
@@ -91,7 +94,8 @@ import { contactEmail, privacyPolicyLastUpdated, responsiblePerson } from '../si
         Servereinstellungen selbst. Dafür fragt sie per HTTPS bei <code>autoconfig.&lt;deine Domain&gt;</code> mit deiner
         E-Mail-Adresse an, beim Einstellungsverzeichnis von Mozilla Thunderbird (<code>autoconfig.thunderbird.net</code>)
         nur mit dem Domainnamen und per DNS nach Service-Einträgen der Domain. Dabei sehen diese Server deine
-        IP-Adresse.
+        IP-Adresse. Liegt ein gefundener Server nicht in der Domain deiner E-Mail-Adresse, weist dich die App darauf hin
+        und fragt vor dem Einrichten nach deiner Bestätigung.
       </li>
       <li>
         <strong>Externe Bilder in Nachrichten:</strong> MailSimple lädt Bilder aus dem Internet erst, wenn du es für eine
@@ -101,7 +105,8 @@ import { contactEmail, privacyPolicyLastUpdated, responsiblePerson } from '../si
       <li>
         <strong>Abmelden von Newslettern:</strong> Tippst du auf „Abmelden“, sendet die App die Abmeldung an die Adresse,
         die der Absender in der Nachricht angibt. Bei einer Ein-Klick-Abmeldung ist das eine Anfrage an den Server des
-        Absenders, ohne Cookies und ohne deine Zugangsdaten. Dieser Server sieht deine IP-Adresse. Andere Abmeldewege
+        Absenders, ohne Cookies und ohne deine Zugangsdaten. Die App sendet sie nur, wenn die Signatur (DKIM) der
+        Nachricht bestätigt ist, und nur an öffentliche Internetadressen. Dieser Server sieht deine IP-Adresse. Andere Abmeldewege
         öffnen eine Webseite oder senden eine E-Mail über dein Konto.
       </li>
       <li>
