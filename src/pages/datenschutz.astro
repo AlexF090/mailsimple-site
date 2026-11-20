@@ -39,7 +39,7 @@ import { contactEmail, privacyPolicyLastUpdated, responsiblePerson } from '../si
         deinen Mail-Anbieter.
       </li>
       <li>
-        <strong>Verbindungsprotokoll:</strong> In den Einstellungen unter „Verbindungen“ siehst du, welche Server die App
+        <strong>Verbindungsprotokoll:</strong> Unter „Einstellungen → Datenschutz → Verbindungen“ siehst du, welche Server die App
         kontaktiert hat. Das Protokoll enthält nur Servername, Zweck und Datum, keine Adressen, Nachrichten oder
         Passwörter. Es bleibt auf deinem Gerät.
       </li>
@@ -58,8 +58,25 @@ import { contactEmail, privacyPolicyLastUpdated, responsiblePerson } from '../si
       </li>
       <li>
         <strong>Zusammenfassungen:</strong> Wenn du „Zusammenfassen“ tippst, erstellt das Sprachmodell von Apple die
-        Zusammenfassung auf deinem Gerät. Der Nachrichtentext wird dafür nirgends hingeschickt. Die Funktion gibt es nur
-        auf Geräten mit Apple Intelligence.
+        Zusammenfassung auf deinem Gerät. Der Nachrichtentext wird dafür nirgends hingeschickt. Fertige
+        Zusammenfassungen speichert die App im Zwischenspeicher (Caches) deines Geräts, damit sie beim erneuten Öffnen
+        der Nachricht sofort da sind. Sie sind vom Backup ausgenommen, es bleiben höchstens 500, die ältesten werden
+        gelöscht. Die Funktion gibt es nur auf Geräten mit Apple Intelligence.
+      </li>
+      <li>
+        <strong>Kontaktfotos:</strong> Nach dem ersten Konto fragt iOS, gleich nach der Frage zu Mitteilungen, ob
+        MailSimple deine Kontakte lesen darf. Erlaubst du es, schaltet die App „Kontaktfotos anzeigen“ ein; in den
+        Einstellungen kannst du es jederzeit wieder ausschalten. Die App sucht dann zur Absenderadresse einer E-Mail das Foto des passenden
+        Kontakts und zeigt es an. Sie liest nur das Vorschaubild, speichert es nur im Arbeitsspeicher und schickt
+        weder Kontakte noch Adressen irgendwohin. Fotos aus dem Internet lädt die App nicht. Erlaubst du nur ausgewählte
+        Kontakte, sieht die App nur diese.
+      </li>
+      <li>
+        <strong>Lesebestätigungen:</strong> Bittet eine empfangene E-Mail um eine Lesebestätigung, fragt die App dich.
+        Nur wenn du „Senden“ tippst, geht über deinen Mail-Anbieter eine kurze Nachricht an die angegebene Adresse.
+        Sie verrät, dass und wann du die E-Mail geöffnet hast. Deine Entscheidung merkt sich die App als Markierung an
+        der E-Mail in deinem Postfach, bei manchen Anbietern auf deinem Gerät, damit sie nicht erneut fragt. Forderst du
+        selbst eine Lesebestätigung an, entscheidet der Empfänger, ob er sie schickt.
       </li>
       <li>
         <strong>Empfangene Anhänge:</strong> Anhänge, die du ansiehst, legt die App vorübergehend im Zwischenspeicher
